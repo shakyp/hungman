@@ -1,5 +1,11 @@
 package game;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -27,4 +33,11 @@ public class Main {
         } while (key != 'S' && key != 'Q');
 
     }
+
+    public static String getWords() throws IOException {
+
+        List<String> words = Files.readAllLines(Paths.get("game/words.txt"), StandardCharsets.UTF_8);
+        int index = new Random().nextInt(words.size());
+        return words.get(index);
+    } // Отвечает за получение и обработку файла
 }
