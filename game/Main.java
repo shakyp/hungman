@@ -10,28 +10,29 @@ import java.util.Scanner;
 
 public class Main {
 
+    static Scanner scanner = new Scanner(System.in); // Сканер
+
     public static void main(String[] args) {
+        startAndQuit();
+    }
 
-        System.out.println("Нажмите клавишу S чтобы начать новую игру.\n" +
-                "Чтобы выйти нажмите клавишу Q.");
-
-        Scanner scanner = new Scanner(System.in); // Сканер
+    static void startAndQuit() {
+        System.out.println("""
+                Введите букву "S" чтобы начать новую игру.
+                Чтобы выйти введите букву "Q".
+                (учитывайте регистр)""");
 
         char key; // Переменная для хранения клавиши входа/входа
 
         do {
-            key = scanner.next().charAt(0);
-
-            if (key == 'S') {
-                System.out.println("Вы нажали " + key);
-            } else if (key == 'Q') {
-                System.out.println("Вы нажали " + key);
-            } else {
-                System.out.println("Вы перепутали клавишу.\n" +
-                        "Попробуйте ещё раз.");
+            switch (key = scanner.next().charAt(0)) {
+                case ('S') -> System.out.println("Вы нажали S");
+                case ('Q') -> System.out.println("Вы нажали Q");
+                default -> System.out.println("""
+                        Вы перепутали клавишу.
+                        Попробуйте ещё раз.""");
             }
-        } while (key != 'S' && key != 'Q');
-
+        } while (key != 'S' & key != 'Q');
     }
 
     public static String getWords() throws IOException {
