@@ -26,14 +26,87 @@ public class Main {
 
         do {
             switch (key = scanner.next().charAt(0)) {
-                case ('S') -> System.out.println("Вы нажали S");
+                case ('S') -> gameStart();
                 case ('Q') -> System.out.println("Вы нажали Q");
                 default -> System.out.println("""
                         Вы перепутали клавишу.
                         Попробуйте ещё раз.""");
             }
         } while (key != 'S' & key != 'Q');
-    }
+    } // Начало нового раунда/выход из игры
+
+    public static void gameStart() {
+        System.out.println("Вы нажали S");
+        drawGallows();
+    } // Начало игры
+
+    public static void drawGallows() {
+        String[] gallows = new String[]{
+                """
+    +---+
+    |   |
+    |
+    |
+    |
+    |
+    +---+
+""",
+                """
+    +---+
+    |   |
+    |   O
+    |
+    |
+    |
+    +---+
+""",
+                """
+    +---+
+    |   |
+    |   O
+    |   |
+    |   |
+    |
+    +---+
+""",
+                """
+    +---+
+    |   |
+    |   O
+    |  \\|
+    |   |
+    |
+    +---+
+""",
+                """
+    +---+
+    |   |
+    |   O
+    |  \\|/
+    |   |
+    |
+    +---+
+""",
+                """
+    +---+
+    |   |
+    |   O
+    |  \\|/
+    |   |
+    |  /
+    +---+
+""",            """
+    +---+
+    |   |
+    |   O
+    |  \\|/
+    |   |
+    |  / \\
+    +---+
+"""
+        };
+        System.out.println(gallows[0]);
+    } // Рисование виселицы
 
     public static String getWords() throws IOException {
 
